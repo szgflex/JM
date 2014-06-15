@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:launcher="http://schemas.android.com/apk/res-auto/com.jm.launcher"
+    android:id="@+id/launcher"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/workspace_bg" >
+
+    <com.jm.launcher.DragLayer
+        android:id="@+id/drag_layer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <!-- The workspace contains 5 screens of cells -->
+
+        <com.jm.launcher.Workspace
+            android:id="@+id/workspace"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            launcher:defaultScreen="@integer/config_workspaceDefaultScreen"
+            launcher:pageIndicator="@id/page_indicator"
+            launcher:pageSpacing="@dimen/workspace_page_spacing" >
+        </com.jm.launcher.Workspace>
+
+        <include
+            android:id="@+id/hotseat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/hotseat" />
+
+        <!--
+             Keep these behind the workspace so that they are not visible when
+             we go into AllApps
+        -->
+        <include
+            android:id="@+id/page_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            layout="@layout/page_indicator" />
+
+        <include
+            android:id="@+id/qsb_bar"
+            layout="@layout/qsb_bar" />
+    </com.jm.launcher.DragLayer>
+
+</FrameLayout>

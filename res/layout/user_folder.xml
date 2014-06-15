@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.jm.launcher.Folder xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:launcher="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false" >
+
+    <RelativeLayout
+        android:id="@+id/folder_top_cantainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="@dimen/folder_padding_bottom" >
+
+        <com.jm.launcher.FolderEditText
+            android:id="@+id/folder_name"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/folder_title_height"
+            android:layout_centerHorizontal="true"
+            android:background="@*android:color/transparent"
+            android:gravity="center"
+            android:imeOptions="actionDone|flagNoExtractUi"
+            android:paddingLeft="20.0dip"
+            android:paddingRight="20.0dip"
+            android:singleLine="true"
+            android:textColor="#ffebebeb"
+            android:textColorHighlight="#ff3ba0e7"
+            android:textSize="21.0sp" />
+
+        <View
+            android:id="@+id/folder_line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/folder_line_height"
+            android:layout_below="@id/folder_name"
+            android:layout_marginBottom="@dimen/folder_line_bottom_margin"
+            android:background="@color/folder_open_line_bgcolor" />
+    </RelativeLayout>
+
+    <com.jm.launcher.FolderScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/folder_top_cantainer"
+        android:layout_centerHorizontal="true"
+        android:fadingEdge="vertical"
+        android:gravity="center"
+        android:layerType="hardware"
+        android:overScrollMode="never"
+        android:scrollbarDefaultDelayBeforeFade="3000"
+        android:scrollbarFadeDuration="500"
+        android:scrollbarThumbVertical="@drawable/folder_scrollbar_thumb"
+        android:scrollbars="vertical" >
+
+        <com.jm.launcher.CellLayout
+            android:id="@+id/folder_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:cacheColorHint="#ff333333"
+            android:hapticFeedbackEnabled="false"
+            launcher:cellHeight="@dimen/folder_cell_height"
+            launcher:cellWidth="@dimen/workspace_cell_width" />
+    </com.jm.launcher.FolderScrollView>
+
+</com.jm.launcher.Folder>
